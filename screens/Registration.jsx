@@ -13,9 +13,11 @@ const validationSchema = yup.object().shape({
   .string()
   .email("Please enter valid email")
   .required('Email is required'),
-  name: yup
+  firstName: yup
   .string()
-  .required('Name is required'),
+  .required('Yout first name is required'),
+  lastName: yup
+  .string(),
   password: yup
   .string()
   .required('Password is required')
@@ -29,6 +31,8 @@ const validationSchema = yup.object().shape({
 
 export default function Registration({navigation}) {
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
   const { signUp, loading } = useAuth();
 
   const onSubmit = data => {
@@ -58,6 +62,7 @@ export default function Registration({navigation}) {
       onChangeText={onChange}
       value={value}
       label='Email'
+      placeholder='Required'
       autoCapitalize='none'
       />
     )}
@@ -74,14 +79,34 @@ export default function Registration({navigation}) {
       <TextInput
       style={{width: 320}}
       color='#246EE9'
-      label="Name"
+      placeholder='Required'
+      label="First name"
       onChangeText={onChange}
       value={value}
       />
     )}
-    name="name"
+    name="firstName"
     />
-    {errors.name && <View style={{ width: 320 }}><Text  style={{color: 'red'}}>{errors.name.message}</Text></View>}
+    {errors.firstName && <View style={{ width: 320 }}><Text  style={{color: 'red'}}>{errors.firstName.message}</Text></View>}
+
+    <Controller
+    control={control}
+    rules={{
+      required: true,
+    }}
+    render={({ field: { onChange, value } }) => (
+      <TextInput
+      style={{width: 320}}
+      color='#246EE9'
+      placeholder='Optional'
+      label="Last name"
+      onChangeText={onChange}
+      value={value}
+      />
+    )}
+    name="lastName"
+    />
+    {errors.lastName && <View style={{ width: 320 }}><Text  style={{color: 'red'}}>{errors.lastName.message}</Text></View>}
 
     <Controller
     control={control}
@@ -94,6 +119,7 @@ export default function Registration({navigation}) {
       secureTextEntry={!showPassword}
       label="Password"
       onChangeText={onChange}
+      placeholder='Required'
       value={value}
       color='#246EE9'
       trailing={props => (
@@ -115,11 +141,15 @@ export default function Registration({navigation}) {
     }}
     render={({ field: { onChange, value } }) => (
       <TextInput style={{width: 320}} secureTextEntry={!showPassword}
-      label="Confirm Password" onChangeText={onChange} value={value} color='#246EE9'
+      label="Confirm Password" 
+      onChangeText={onChange} 
+      value={value} 
+      color='#246EE9'
+      placeholder='Required'
       trailing={props => (
         <IconButton
-        icon={!showPassword ? <Icon size={30} name="eye-off" /> : <Icon size={30} name="eye"/>}
-        onPress={() => setShowPassword(!showPassword)}
+        icon={!showConfirmPassword ? <Icon size={30} name="eye-off" /> : <Icon size={30} name="eye"/>}
+        onPress={() => setShowConfirmPassword(!showConfirmPassword)}
         />
       )}
       />
