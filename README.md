@@ -33,10 +33,10 @@ The app has six screens:
 * Password Screen: Allows a logged in user to edit the password.
 
 ## Navigation
-The app uses a native stack navigator to handle navigation between screens. The `Navigation` component in `Navigation.js` is responsible for rendering the appropriate screens based on the user's authentication state.
+The app uses a native stack navigator to handle navigation between screens. The `Navigation` component is responsible for rendering the appropriate screens based on the user's authentication state.
 
 ## Authentication
-The app uses a custom AuthContext to manage authentication state. The `AuthContext` is created in `AuthContext.js` and used throughout the app to check if the user is logged in.
+The app uses a custom AuthContext to manage authentication state. The `AuthContext`component is responsible for handling authentication and creating users.
 
 The useAuth hook can be used to access the authentication state and update it when necessary.
 
