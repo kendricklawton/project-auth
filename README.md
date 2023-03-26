@@ -1,4 +1,4 @@
-# React Native Auth App
+# React Native Authentication Template
 This is a sample authentication app built with React Native. It uses a native stack navigator for navigation and a custom `AuthContext` for managing authentication state.
 
 ## Prerequisites
