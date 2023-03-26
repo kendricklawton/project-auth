@@ -40,12 +40,11 @@ npm start
 ```
 5. Use a mobile device or emulator to run the app.
 
-
-
 ## Usage
-The app has six screens:
+The app has seven screens:
 * Login: Allows existing users to log in.
 * Registration: Allows new users to create an account.
+* ForgotPassword: Allows existing users to reset password.
 * Profile: Allows a logged in user to view and edit account details.
 * Name: Allows a logged in user to edit thier name. 
 * Email: Allows a logged in user to edit their email.
@@ -56,6 +55,8 @@ The app uses a native stack navigator to handle navigation between screens. The 
 
 ## Authentication
 The app uses a custom AuthContext to manage authentication state. The `AuthContext`component is responsible for handling authentication and creating users. The `useAuth` hook is used to access the authentication context.
+
+## Screenshots
 
 ## Credits
 * [Back4App](https://www.back4app.com/)
