@@ -8,23 +8,6 @@ This is a sample authentication app built with React Native. It uses a native st
 * Back4App
 
 ## Installation
-1. To use this app with Back4App, you'll need to set up a Back4App account and create a new app. Follow these steps:
-  1. Sign up for a Back4App account and create a new app.
-  2. Navigate to the "Dashboard" of your app.
-  3. Under "Core Settings," click on "Security & Keys."
-  4. Copy the "Application ID," "Javascript Key," and "Server URL."
-  5. Add the following `extra` JSON object to the app.json file with your Parse details like below.
-  ```
-  {
-  "expo": {
-    "extra": {
-      "PARSE_APP_ID": "YOUR_PARSE_APP_ID",
-      "PARSE_JAVASCRIPT_KEY": "YOUR_PARSE_JAVASCRIPT_KEY",
-      "PARSE_SERVER_URL": "YOUR_PARSE_SERVER_URL"
-      }
-    }
-  }
-  ```
 1. Clone the repository:
 ```
 git clone https://github.com/kendricklawton/react-native-auth.git
@@ -34,11 +17,28 @@ git clone https://github.com/kendricklawton/react-native-auth.git
 cd react-native-auth
 npm install
 ```
-3. Start the Expo development server:
+3. To use this app with Back4App, you'll need to set up a Back4App account and create a new app. Follow these steps:
+    1. Sign up for a Back4App account and create a new app.
+    2. Navigate to the "Dashboard" of your app.
+    3. Under "Core Settings," click on "Security & Keys."
+    4. Copy the "Application ID," "Javascript Key," and "Server URL."
+    5. Add the following `extra` JSON object to the `app.json` file with your Parse details like below.
+```
+{
+"expo": {
+  "extra": {
+    "PARSE_APP_ID": "YOUR_PARSE_APP_ID",
+    "PARSE_JAVASCRIPT_KEY": "YOUR_PARSE_JAVASCRIPT_KEY",
+    "PARSE_SERVER_URL": "YOUR_PARSE_SERVER_URL"
+    }
+  }
+}
+```
+4. Start the Expo development server:
 ```
 npm start
 ```
-4. Use a mobile device or emulator to run the app.
+5. Use a mobile device or emulator to run the app.
 
 
 
