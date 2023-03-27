@@ -47,8 +47,11 @@ export default function Profile({ navigation }) {
                     width: 320
                 }}
                 onPress={() => {
-                    navigation.navigate('Password');
-                }}
+                    /* 1. Navigate to the Details route with params */
+                    navigation.navigate('Password', {
+                      isForgotPassword: false,
+                    });
+                  }}
                 title='Password'
             />
 

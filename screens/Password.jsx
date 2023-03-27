@@ -12,7 +12,7 @@ const validationSchema = yup.object().shape({
     .email()
     .required('Email is required'),
   });
-export default function Password({navigation }) {
+export default function Password({ route, navigation }) {
     const { upodatePassword, loading} = useAuth();
 
     const onSubmit = data => {
@@ -24,13 +24,15 @@ export default function Password({navigation }) {
         resolver: yupResolver(validationSchema),
     });
 
+    const { isForgotPassword } = route.params;
+
     if (loading) {
         return <Loading />;
     }
 
     return (
         <SafeAreaView style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text style={{ fontSize: 18, fontWeight: '300' }}>Enter Email To Update Password</Text>
+            <Text style={{ fontSize: 18, fontWeight: '300' }}>Enter Email To Reset Password</Text>
             <View style={{height: 5}}/>
             <Controller
                 control={control}
@@ -51,16 +53,27 @@ export default function Password({navigation }) {
             />
             {errors.emailPassword && <View style={{ width: 320 }}><Text style={{ color: 'red' }}>{errors.emailPassword.message}</Text></View>}
 
+
+
+
+            {
+                isForgotPassword
+
+                ?
             <Button
-                onPress={handleSubmit(onSubmit)}
-                color='#246EE9'
-                style={{
-                    width: 320
-                }}
-                title="Submit"
+                onPress={() => {
+                    navigation.navigate('Login');
+                    }}
+                    color='#246EE9'
+                    style={{
+                        width: 320
+                    }}
+                title="Cancel"
             />
-            <View style={{ height: 5 }} />
-            <Button
+
+                :
+
+                <Button
                 onPress={() => {
                     navigation.navigate('Profile');
                     }}
@@ -70,6 +83,10 @@ export default function Password({navigation }) {
                     }}
                 title="Cancel"
             />
+        
+
+                
+            }
         </SafeAreaView>
     );
 

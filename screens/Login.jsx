@@ -103,7 +103,12 @@ export default function SignIn({navigation}) {
    
    <View style={{ height: 5 }} />
     <Button
-    onPress={handleForgotPassword}
+      onPress={() => {
+        /* 1. Navigate to the Details route with params */
+        navigation.navigate('Password', {
+          isForgotPassword: true ,
+        });
+      }}
     color='#246EE9'
     style={{
         width: 320
