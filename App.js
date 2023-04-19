@@ -69,7 +69,7 @@ const Navigation = () => {
 
 export default function App() {
 
-  return (
+  return ( 
     <AuthContextProvider>
       <Navigation/>
     </AuthContextProvider>
